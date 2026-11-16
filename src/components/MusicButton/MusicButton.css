@@ -1,0 +1,75 @@
+.rp-music {
+  z-index: 40;
+  bottom: max(1.5rem, calc(env(safe-area-inset-bottom, 0px) + 1rem));
+  right: max(1rem, calc((100% - min(100%, var(--rp-stage-max))) / 2 + 1rem));
+  width: 46px;
+  height: 46px;
+  color: var(--rp-gold-pale);
+  background: linear-gradient(180deg, var(--rp-terra), var(--rp-maroon));
+  cursor: pointer;
+  border: 1px solid #e2c27acc;
+  border-radius: 50%;
+  place-items: center;
+  padding: 0;
+  transition: transform 0.18s;
+  display: grid;
+  position: fixed;
+  box-shadow: 0 6px 18px #4a160e59;
+}
+
+.rp-music:active {
+  transform: scale(0.94);
+}
+
+.rp-music__play {
+  width: 20px;
+  height: 20px;
+}
+
+.rp-music__eq {
+  align-items: flex-end;
+  gap: 2px;
+  height: 15px;
+  display: none;
+}
+
+.rp-music__eq i {
+  background: currentColor;
+  border-radius: 1px;
+  width: 3px;
+  height: 40%;
+  display: block;
+}
+
+.rp-music.is-playing .rp-music__play {
+  display: none;
+}
+
+.rp-music.is-playing .rp-music__eq {
+  display: flex;
+}
+
+@media (prefers-reduced-motion: no-preference){
+.rp-music.is-playing .rp-music__eq i {
+    animation: 0.9s ease-in-out infinite rp-eq;
+  }
+.rp-music.is-playing .rp-music__eq i:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+.rp-music.is-playing .rp-music__eq i:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+.rp-music.is-playing .rp-music__eq i:nth-child(4) {
+    animation-delay: 0.45s;
+  }
+}
+
+@keyframes rp-eq {
+  0%,
+  to {
+    height: 35%;
+  }
+  50% {
+    height: 100%;
+  }
+}

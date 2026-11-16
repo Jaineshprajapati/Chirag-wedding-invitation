@@ -1,0 +1,121 @@
+.rp-families {
+  min-height: var(--rp-h);
+  background-color: var(--rp-ivory);
+}
+
+.rp-families__inner {
+  text-align: center;
+  align-items: center;
+  gap: calc(var(--rp-w) * 0.03);
+  padding: calc(var(--rp-h) * 0.505) 6% calc(var(--rp-h) * 0.12);
+  flex-direction: column;
+  display: flex;
+}
+
+.rp-families__heading {
+  left: 14%;
+  right: 14%;
+  top: calc(var(--rp-h) * 0.125);
+  position: absolute;
+  transform: translateY(-50%);
+}
+
+.rp-families__heading:after {
+  display: none;
+}
+
+.rp-fam__side {
+  align-items: center;
+  gap: calc(var(--rp-w) * 0.008);
+  flex-direction: column;
+  display: flex;
+}
+
+.rp-fam__name {
+  font-family:"Allura",
+    Georgia,
+    serif;
+  font-size: min(
+    calc(var(--rp-w) * 0.09),
+    calc(var(--rp-w) * 1.15 / var(--rp-name-len, 10))
+  );
+  color: var(--rp-maroon);
+  line-height: 1.15;
+}
+
+.rp-fam__parents {
+  font-size: max(
+    calc(var(--rp-w) * 0.03),
+    min(
+      calc(var(--rp-w) * 0.037),
+      calc(var(--rp-w) * 1.55 / var(--rp-parents-len, 40))
+    )
+  );
+  color: var(--rp-ink);
+  text-wrap: balance;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.rp-fam__extra {
+  font-family:"EB Garamond",
+    Cormorant Garamond,
+    Georgia,
+    serif;
+  font-style: italic;
+  font-size: max(
+    calc(var(--rp-w) * 0.03),
+    min(
+      calc(var(--rp-w) * 0.036),
+      calc(var(--rp-w) * 1.75 / var(--rp-extra-len, 36))
+    )
+  );
+  color: var(--rp-ink-soft);
+  text-wrap: balance;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.rp-fam__line {
+  display: block;
+}
+
+.rp-fam__piece {
+  display: inline-block;
+}
+
+.rp-fam__divider span {
+  align-items: center;
+  gap: calc(var(--rp-w) * 0.03);
+  display: flex;
+}
+
+.rp-fam__divider i {
+  width: calc(var(--rp-w) * 0.16);
+  background: linear-gradient(90deg, transparent, var(--rp-gold));
+  height: 1px;
+  display: block;
+}
+
+.rp-fam__divider i:last-child {
+  background: linear-gradient(90deg, var(--rp-gold), transparent);
+}
+
+.rp-fam__logo {
+  height: calc(var(--rp-w) * 0.092);
+  width: auto;
+  max-width: calc(var(--rp-w) * 0.17);
+  margin-block: calc(var(--rp-w) * -0.006);
+  object-fit: contain;
+  display: block;
+}
+
+.rp-fam__divider b {
+  font-family:"Allura",
+    Georgia,
+    serif;
+  font-weight: 400;
+  font-size: calc(var(--rp-w) * 0.08);
+  color: var(--rp-gold-deep);
+  line-height: 1;
+}

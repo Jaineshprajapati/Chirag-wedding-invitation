@@ -1,0 +1,13 @@
+/* page-level resets (the invitation itself is styled by styles/base.css + each component) */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  min-height: 0;
+}
+
+/* browsers restore scroll position on reload; the invite should always open at the top */
+html {
+  scroll-restoration: manual;
+}

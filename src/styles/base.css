@@ -1,0 +1,375 @@
+.wedding-render {
+  --invite-ready: 1;
+}
+
+.rajasthan-palace {
+  --rp-linen: #f3eadb;
+  --rp-beige: #e6d5bc;
+  --rp-camel: #c9a77c;
+  --rp-gold: #b8893a;
+  --rp-gold-light: #e2c27a;
+  --rp-gold-pale: #f3dfa6;
+  --rp-gold-deep: #8a6224;
+  --rp-terra: #9c4a33;
+  --rp-maroon: #6e2418;
+  --rp-maroon-deep: #4a160e;
+  --rp-olive: #77744e;
+  --rp-cocoa: #3b2a20;
+  --rp-ink: #4a2a1c;
+  --rp-ink-soft: #7a5844;
+  --rp-ivory: #fbf4e6;
+  --rp-line: #8a622459;
+  --rp-stage-max: 100vw;
+  --rp-w: min(100vw, var(--rp-stage-max));
+  --rp-frame: 100vh;
+  --rp-screen: 100vh;
+  --rp-h: max(calc(var(--rp-w) * 1.7778), var(--rp-screen));
+  --rp-hu: min(var(--rp-w), calc(var(--rp-screen) * 0.5625));
+  color: var(--rp-ink);
+  -webkit-font-smoothing: antialiased;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: #e8dbc4;
+  margin: 0;
+  font-family:"Cormorant Garamond",
+    Georgia,
+    Times New Roman,
+    serif;
+  font-size: clamp(1rem, 0.96rem + 0.3vw, 1.125rem);
+  line-height: 1.55;
+  display: block;
+  position: relative;
+  overflow-x: clip;
+}
+
+@supports (height: 100dvh){
+.rajasthan-palace {
+    --rp-frame: 100lvh;
+    --rp-screen: 100svh;
+  }
+}
+
+@media (min-width: 1400px) and (orientation: landscape){
+.rajasthan-palace {
+    --rp-stage-max: clamp(460px, var(--rp-screen) * 0.62, 780px);
+  }
+}
+
+.rp-stage {
+  width: min(100%, var(--rp-stage-max));
+  background-color: var(--rp-linen);
+  margin-inline: auto;
+  position: relative;
+}
+
+@media (min-width: 1400px) and (orientation: landscape){
+.rp-stage {
+    box-shadow: 0 0 56px #3b2a2033;
+  }
+}
+
+.rajasthan-palace *,
+.rajasthan-palace :before,
+.rajasthan-palace :after {
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.rajasthan-palace input,
+.rajasthan-palace textarea {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
+
+.rajasthan-palace p,
+.rajasthan-palace h1,
+.rajasthan-palace h2,
+.rajasthan-palace h3,
+.rajasthan-palace ol,
+.rajasthan-palace ul {
+  margin: 0;
+}
+
+.rajasthan-palace ol,
+.rajasthan-palace ul {
+  padding: 0;
+  list-style: none;
+}
+
+.rajasthan-palace button {
+  font: inherit;
+  color: inherit;
+}
+
+.rajasthan-palace :focus-visible {
+  outline: 2px solid var(--rp-gold-deep);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.rp-section {
+  isolation: isolate;
+  position: relative;
+}
+
+.rp-art {
+  z-index: -1;
+  object-fit: fill;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+.rp-heading {
+  font-family:"Cinzel",
+    Cormorant Garamond,
+    Georgia,
+    serif;
+  font-weight: 600;
+  font-size: calc(var(--rp-w) * 0.062);
+  letter-spacing: 0.08em;
+  color: var(--rp-maroon);
+  text-align: center;
+  text-wrap: balance;
+  line-height: 1.2;
+}
+
+.rp-heading:after {
+  content: "";
+  width: calc(var(--rp-w) * 0.26);
+  height: calc(var(--rp-w) * 0.022);
+  margin: calc(var(--rp-w) * 0.022) auto 0;
+  background:
+    linear-gradient(
+        45deg,
+        transparent 42%,
+        var(--rp-gold) 42%,
+        var(--rp-gold) 58%,
+        transparent 58%
+      )
+      center / calc(var(--rp-w) * 0.022) 100% no-repeat,
+    linear-gradient(
+        -45deg,
+        transparent 42%,
+        var(--rp-gold) 42%,
+        var(--rp-gold) 58%,
+        transparent 58%
+      )
+      center / calc(var(--rp-w) * 0.022) 100% no-repeat,
+    linear-gradient(
+        90deg,
+        transparent,
+        var(--rp-gold) 30%,
+        transparent 46%,
+        transparent 54%,
+        var(--rp-gold) 70%,
+        transparent
+      )
+      center / 100% 1px no-repeat;
+  display: block;
+}
+
+.rp-reveal {
+  transition:
+    opacity 0.85s,
+    transform 0.85s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.rajasthan-palace.rp-motion .rp-reveal:not(.is-in) {
+  opacity: 0;
+}
+
+.rajasthan-palace.rp-motion .rp-reveal.is-rise:not(.is-in) {
+  transform: translateY(18px);
+}
+
+.rajasthan-palace.rp-motion .rp-reveal.is-zoom:not(.is-in) {
+  transform: scale(0.92);
+}
+
+.rp-words__w {
+  white-space: pre;
+  transition:
+    opacity 0.7s,
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  display: inline-block;
+}
+
+.rajasthan-palace.rp-motion .rp-words:not(.is-in) .rp-words__w {
+  opacity: 0;
+  transform: translateY(0.4em);
+}
+
+.rp-petals {
+  display: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.rp-petals i {
+  left: 0;
+  top: var(--y);
+  width: calc(var(--rp-hu) * 0.034 * var(--s, 1));
+  height: calc(var(--rp-hu) * 0.022 * var(--s, 1));
+  opacity: 0.85;
+  border-radius: 80% 0;
+  position: absolute;
+}
+
+.rp-petals i.is-rose {
+  background: radial-gradient(120% 100% at 30% 30%, #f6b8c6, #d4567a 70%);
+}
+
+.rp-petals i.is-marigold {
+  background: radial-gradient(120% 100% at 30% 30%, #ffd27a, #e8891d 70%);
+}
+
+.rp-petals i.is-blush {
+  background: radial-gradient(120% 100% at 30% 30%, #fbe1d3, #e7a189 70%);
+}
+
+@media (prefers-reduced-motion: no-preference){
+.rajasthan-palace.rp-motion .rp-petals {
+    display: block;
+  }
+.rp-petals i {
+    animation: rp-petal var(--dur, 16s) linear infinite;
+    animation-delay: var(--delay, 0s);
+  }
+}
+
+@keyframes rp-petal {
+  0% {
+    transform: translate3d(calc(var(--rp-w) * -0.1), 0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(
+        calc(var(--rp-w) * 0.2),
+        calc(var(--rp-screen) * 0.025),
+        0
+      )
+      rotate(120deg);
+  }
+  50% {
+    transform: translate3d(
+        calc(var(--rp-w) * 0.5),
+        calc(var(--rp-screen) * var(--drift-f, 0.04)),
+        0
+      )
+      rotate(220deg);
+  }
+  75% {
+    transform: translate3d(
+        calc(var(--rp-w) * 0.8),
+        calc(var(--rp-screen) * 0.065),
+        0
+      )
+      rotate(310deg);
+  }
+  to {
+    transform: translate3d(
+        calc(var(--rp-w) * 1.1),
+        calc(var(--rp-screen) * 0.09),
+        0
+      )
+      rotate(420deg);
+  }
+}
+
+.rp-mahavir,
+.rp-deity-photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+
+@media (prefers-reduced-motion: no-preference){
+.rajasthan-palace.rp-motion .rp-hero.is-open .rp-mahavir path {
+    stroke-dasharray: 1;
+    animation: 2.6s cubic-bezier(0.4, 0.1, 0.2, 1) both rp-draw;
+    animation-delay: calc(var(--d, 0s) + 0.15s);
+  }
+}
+
+.rp-rsvp .rp-date__trigger {
+  text-align: left;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.6em;
+  display: flex;
+}
+
+.rp-rsvp .rp-date__nav {
+  width: 40px;
+  height: 40px;
+  color: var(--rp-maroon);
+  cursor: pointer;
+  background: #fffbf1e6;
+  border: 1px solid #b8893a99;
+  border-radius: 50%;
+  flex: none;
+  place-items: center;
+  padding: 0;
+  transition:
+    transform 0.15s,
+    background-color 0.2s;
+  display: grid;
+}
+
+.rp-rsvp .rp-date__nav:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.rp-rsvp .rp-date__day {
+  aspect-ratio: 1;
+  font-variant-numeric: tabular-nums;
+  width: 100%;
+  max-height: 46px;
+  color: var(--rp-ink);
+  cursor: pointer;
+  background: 0 0;
+  border: 0;
+  border-radius: 50%;
+  place-items: center;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 600;
+  transition:
+    transform 0.15s,
+    background-color 0.2s,
+    color 0.2s;
+  display: grid;
+  position: relative;
+}
+
+.rp-rsvp .rp-date__day:disabled {
+  color: #4a2a1c47;
+  cursor: default;
+  font-weight: 500;
+}
+
+.rp-rsvp .rp-date__day.is-on {
+  color: var(--rp-ivory);
+  background: radial-gradient(circle at 35% 30%, #b55a40, var(--rp-maroon) 70%);
+  box-shadow:
+    inset 0 0 0 2px #f3dfa6bf,
+    0 2px 6px #6e24184d;
+}
+
+@media (hover: hover) and (pointer: fine){
+.rp-rsvp .rp-date__day:not(:disabled):not(.is-on):hover {
+    background: #e2c27a4d;
+  }
+.rp-rsvp .rp-date__nav:not(:disabled):hover {
+    background: var(--rp-gold-pale);
+  }
+}
